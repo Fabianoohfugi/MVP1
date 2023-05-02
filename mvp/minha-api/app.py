@@ -39,23 +39,23 @@ def add_produto(form: ProdutoSchema):
         valor=form.valor)
     logger.debug(f"Adicionando produto de nome: '{produto.nome}'")
     try:
-        # criando conexão com a base
+        
         session = Session()
-        # adicionando produto
+        
         session.add(produto)
-        # efetivando o camando de adição de novo item na tabela
+        
         session.commit()
         logger.debug(f"Adicionado produto de nome: '{produto.nome}'")
         return apresenta_produto(produto), 200
 
     except IntegrityError as e:
-        # como a duplicidade do nome é a provável razão do IntegrityError
+        
         error_msg = "Produto de mesmo nome já salvo na base :/"
         logger.warning(f"Erro ao adicionar produto '{produto.nome}', {error_msg}")
         return {"mesage": error_msg}, 409
 
     except Exception as e:
-        # caso um erro fora do previsto
+        
         error_msg = "Não foi possível salvar novo item :/"
         logger.warning(f"Erro ao adicionar produto '{produto.nome}', {error_msg}")
         return {"mesage": error_msg}, 400
@@ -69,17 +69,17 @@ def get_produtos():
     Retorna uma representação da listagem de produtos.
     """
     logger.debug(f"Coletando produtos ")
-    # criando conexão com a base
+    
     session = Session()
-    # fazendo a busca
+    
     produtos = session.query(Produto).all()
 
     if not produtos:
-        # se não há produtos cadastrados
+        
         return {"produtos": []}, 200
     else:
         logger.debug(f"%d rodutos econtrados" % len(produtos))
-        # retorna a representação de produto
+       
         print(produtos)
         return apresenta_produtos(produtos), 200
 
@@ -93,18 +93,16 @@ def del_produto(query: ProdutoBuscaSchema):
     produto_nome = unquote(unquote(query.nome))
     print(produto_nome)
     logger.debug(f"Deletando dados sobre produto #{produto_nome}")
-    # criando conexão com a base
     session = Session()
-    # fazendo a remoção
     count = session.query(Produto).filter(Produto.nome == produto_nome).delete()
     session.commit()
 
     if count:
-        # retorna a representação da mensagem de confirmação
+        
         logger.debug(f"Deletado produto #{produto_nome}")
         return {"mesage": "Produto removido", "id": produto_nome}
     else:
-        # se o produto não foi encontrado
+        
         error_msg = "Produto não encontrado na base :/"
         logger.warning(f"Erro ao deletar produto #'{produto_nome}', {error_msg}")
         return {"mesage": error_msg}, 404
