@@ -8,5 +8,6 @@ Utilizei as linguagens de programação: HTML, CSS e JAVASCRIPT.
 ## Como executar
 
 
-Primeiro realize as instruções dos outros READMEs.
+Primeiro realize as instruções do README da "minha-api" e depois basta abrir o
+arquivo index.html no browser.
 
