@@ -1,8 +1,4 @@
-/*
-  --------------------------------------------------------------------------------------
-  Função para obter a lista existente do servidor via requisição GET
-  --------------------------------------------------------------------------------------
-*/
+
 const getList = async () => {
     let url = 'http://127.0.0.1:5000/produtos';
     fetch(url, {
@@ -17,19 +13,9 @@ const getList = async () => {
       });
   }
   
-  /*
-    --------------------------------------------------------------------------------------
-    Chamada da função para carregamento inicial dos dados
-    --------------------------------------------------------------------------------------
-  */
   getList()
   
-  
-  /*
-    --------------------------------------------------------------------------------------
-    Função para colocar um item na lista do servidor via requisição POST
-    --------------------------------------------------------------------------------------
-  */
+ 
   const postItem = async (inputProduct, inputQuantity, inputPrice) => {
     const formData = new FormData();
     formData.append('nome', inputProduct);
@@ -48,11 +34,6 @@ const getList = async () => {
   }
   
   
-  /*
-    --------------------------------------------------------------------------------------
-    Função para criar um botão close para cada item da lista
-    --------------------------------------------------------------------------------------
-  */
   const insertButton = (parent) => {
     let span = document.createElement("span");
     let txt = document.createTextNode("\u00D7");
@@ -62,11 +43,6 @@ const getList = async () => {
   }
   
   
-  /*
-    --------------------------------------------------------------------------------------
-    Função para remover um item da lista de acordo com o click no botão close
-    --------------------------------------------------------------------------------------
-  */
   const removeElement = () => {
     let close = document.getElementsByClassName("close");
     // var table = document.getElementById('myTable');
@@ -84,11 +60,7 @@ const getList = async () => {
     }
   }
   
-  /*
-    --------------------------------------------------------------------------------------
-    Função para deletar um item da lista do servidor via requisição DELETE
-    --------------------------------------------------------------------------------------
-  */
+  
   const deleteItem = (item) => {
     console.log(item)
     let url = 'http://127.0.0.1:5000/produto?nome=' + item;
@@ -101,11 +73,7 @@ const getList = async () => {
       });
   }
   
-  /*
-    --------------------------------------------------------------------------------------
-    Função para adicionar um novo item com nome, quantidade e valor 
-    --------------------------------------------------------------------------------------
-  */
+  
   const newItem = () => {
     let inputProduct = document.getElementById("newInput").value;
     let inputQuantity = document.getElementById("newQuantity").value;
@@ -122,11 +90,7 @@ const getList = async () => {
     }
   }
   
-  /*
-    --------------------------------------------------------------------------------------
-    Função para inserir items na lista apresentada
-    --------------------------------------------------------------------------------------
-  */
+
   const insertList = (nameProduct, quantity, price) => {
     var item = [nameProduct, quantity, price]
     var table = document.getElementById('myTable');
