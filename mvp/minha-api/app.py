@@ -21,8 +21,7 @@ comentario_tag = Tag(name="Comentario", description="Adição de um comentário 
 
 @app.get('/', tags=[home_tag])
 def home():
-    """Redireciona para /openapi, tela que permite a escolha do estilo de documentação.
-    """
+    
     return redirect('/openapi')
 
 
