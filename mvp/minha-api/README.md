@@ -20,27 +20,50 @@ O projeto se trata de uma lista de materia escolar.
  ```
   venv/Scripts/Activate
  ```
- Depois que estiver com o ambiente virtual ativado, baixe as seguintes libs:
+ 
+ Depois que estiver com o ambiente virtual atiado, baixe o arquivo requirements.txt com o seguinte comando:
+ 
+  ```
+  pip install -r requirements.txt
+ ```
+ 
+ Se não consegguir com o comando acima, baixe todas manualmente com o comando 
+  
+ ````
+ pip install 'nome da lib abaixo'
  
  ```
- pip install Flask
- 
- pip install CORS
- 
- pip install flask cors
- 
- pip install sqlalchemy
- 
- pip install sqlalchemy.orm
- 
- pip install -U flask-openapi3
- 
- pip install flask-restful
- 
- pip install flask-swagger-ui
+aniso8601
+attrs
+click
+Flask
+Flask-Cors
+flask-openapi3
+flask-restx
+Flask-SQLAlchemy
+greenlet
+gunicorn
+importlib-metadata
+itsdangerous
+Jinja2
+jsonschema
+MarkupSafe
+nose2
+pydantic
+pyrsistent
+pytz
+six
+SQLAlchemy
+SQLAlchemy-Utils
+typing_extensions
+Werkzeug
+zipp
+Flask
+sqlalchemy
+sqlalchemy.orm
+flask-openapi3
+flask-restful
+flask-swagger-ui
+flask-swagger-ui
 
- pip install flask-swagger-ui
-
-
- 
 ```
