@@ -69,6 +69,6 @@ flask-swagger-ui
 ```
 Depois que fizer os passos acima, rode o app.py e acesse no browser:
 
-````
+```
 http://127.0.0.1:5000
 ```
